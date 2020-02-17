@@ -6,4 +6,6 @@ class News < ApplicationRecord
   belongs_to :category
   belongs_to :admin
   has_many :tags
+
+  scope :recent, -> { order(:created_at) }
 end
