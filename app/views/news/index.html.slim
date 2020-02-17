@@ -1,4 +1,17 @@
 div class='page-header'
-  h1
-  form class='news-search'
+  h1 FRESHLY SQUEEZED NEWS
+  == search_form_for @news do |f|
+    == f.label :title_cont
+    == f.search_field :title_cont
+div class="news-teaser-list"
+  == @news.each do |news|
+    div class="news-teaser-holder"
+      div class="teaser-list-element"
+        == render 'shared/news_indicator', locals: { news: news }
+        h2 news.title
+        p class='teaser-tags'
+          == news.tags each do |tag|
+            == render 'shared/teaser_tags', locals: { tag: tag }
+
+
 

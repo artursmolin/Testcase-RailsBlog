@@ -1,5 +1,5 @@
 class NewsController < ApplicationController
   def index
-    @news = News.all.recent
+    @news = News.includes(:category).ransack(params[:search]).result
   end
 end
