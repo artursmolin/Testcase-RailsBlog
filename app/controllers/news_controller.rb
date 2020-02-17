@@ -1,5 +1,7 @@
 class NewsController < ApplicationController
   def index
-    @news = News.includes(:category).ransack(params[:search]).result
+    @search = News.ransack(params[:search])
+    @news = @search.result.includes(:category).to_a.uniq
+    @title = params[:search].nil? ? 'FRESHLY SQUEEZED NEWS' : 'SEARCH RESULTS'
   end
 end

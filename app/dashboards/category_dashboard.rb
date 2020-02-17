@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class NewsDashboard < Administrate::BaseDashboard
+class CategoryDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,13 +8,9 @@ class NewsDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    category: Field::BelongsTo,
-    admin: Field::BelongsTo,
-    tags: Field::HasMany,
+    news: Field::HasMany,
     id: Field::Number,
     title: Field::String,
-    description: Field::Text,
-    asset: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -25,22 +21,18 @@ class NewsDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  category
-  admin
-  tags
+  news
   id
+  title
+  created_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-  category
-  admin
-  tags
+  news
   id
   title
-  description
-  asset
   created_at
   updated_at
   ].freeze
@@ -49,12 +41,8 @@ class NewsDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-  category
-  admin
-  tags
+  news
   title
-  description
-  asset
   ].freeze
 
   # COLLECTION_FILTERS
@@ -69,10 +57,10 @@ class NewsDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how news are displayed
+  # Overwrite this method to customize how categories are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(news)
-  #   "News ##{news.id}"
+  # def display_resource(category)
+  #   "Category ##{category.id}"
   # end
 end
