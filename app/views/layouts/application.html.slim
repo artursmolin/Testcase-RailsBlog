@@ -8,6 +8,9 @@ html
     == javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
-    == render 'shared/navbar'
-    == yield
+    div class="columns is-desktop"
+      div class="column is-one-quarter"
+        == render 'shared/navbar'
+      div class="column is-one-quarter"
+        == yield
 
