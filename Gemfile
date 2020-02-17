@@ -25,6 +25,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'administrate', '~> 0.12.0'
 gem 'devise', '~> 4.7', '>= 4.7.1'
+gem "bulma-rails", "~> 0.8.0"
+gem 'slim', '~> 4.0', '>= 4.0.1'
 
 group :development, :test do
   gem 'pry', '~> 0.12.2'
