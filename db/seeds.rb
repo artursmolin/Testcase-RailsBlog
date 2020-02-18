@@ -30,15 +30,22 @@ end
 end
 
 100.times do
-  news_id = rand(News.count)
-  news_id = news_id.zero? ? News.first.id : news_id
-  title = Faker::Games::Dota.hero
   begin
-    tag = Tag.create!(title: title, news_id: news_id)
+    title = Faker::Games::Dota.hero
+    tag = Tag.create!(title: title) + rand(100).to_s
   rescue
-    title = Faker::Games::Dota.item + news_id.to_s
-    tag = Tag.create!(title: title, news_id: news_id)
+    title = Faker::Games::Dota.item + rand(100).to_s
+    tag = Tag.create!(title: title)
   ensure
     p "Tag :#{tag.title} was created"
   end
+end
+
+100.times do
+  news_id = rand(News.count)
+  news_id = news_id.zero? ? News.first.id : news_id
+  tag_id = rand(Tag.count)
+  tag_id = tag_id.zero? ? Tag.first.id : tag_id
+  news_tag = NewsTag.create!(news_id: news_id, tag_id: tag_id)
+  p "NewsTag relation:#{news_tag.id} was created"
 end

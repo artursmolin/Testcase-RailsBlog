@@ -5,7 +5,7 @@ class Tag < ApplicationRecord
   friendly_id :title, use: :slugged
 
   validates :title, presence: true, uniqueness: true
-  validates :news_id, presence: true
 
-  has_many :news
+  has_many :news_tags
+  has_many :news, through: :news_tags
 end

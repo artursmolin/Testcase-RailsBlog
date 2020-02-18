@@ -6,7 +6,11 @@ class NewsController < ApplicationController
 
   def index
     @search = News.ransack(params[:q])
-    @news = @search.result.includes(:category).to_a.uniq.each_slice(3).to_a
+    @news = if params[:q]
+              @search.result.includes(:category).to_a.uniq.each_slice(3).to_a
+            else
+              @search.result.includes(:category).limit(9).to_a.uniq.each_slice(3).to_a
+            end
     @title = find_title(params[:q])
   end
 

@@ -1,0 +1,8 @@
+div class="column canvas-container"
+  div class='news-teasers'
+    div class='page-header'
+      h1
+        | All news with tag:
+        '
+        == @tag.title
+    == render 'shared/teaser-list', news: @news
