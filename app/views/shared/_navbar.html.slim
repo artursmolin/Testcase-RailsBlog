@@ -1,16 +1,22 @@
 aside class="menu"
-  ul class="menu-list"
-    li
-      a News
-    li
-      a class="is-active" Categories
-      ul
-        li
-          a Members
-        li
-          a Plugins
-        li
-          a Add a member
-    li
-      a Tags
+  div class="dm-logo-holder"
+    a href="https://www.digitalmarmelade.co.uk" data-title="home"
+      == render 'svg/logo'
 
+  div class="main-navigation"
+    ul class="menu-list"
+      li
+        a News
+      li
+        a class="is-active" Categories
+        ul
+          li
+            a Members
+          li
+            a Plugins
+          li
+            a Add a member
+      li
+        a Tags
+
+    == render 'svg/social-icons'

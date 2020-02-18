@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_17_193143) do
+ActiveRecord::Schema.define(version: 2020_02_18_100352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 2020_02_17_193143) do
     t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_categories_on_slug", unique: true
     t.index ["title"], name: "index_categories_on_title"
   end
 
@@ -44,8 +46,10 @@ ActiveRecord::Schema.define(version: 2020_02_17_193143) do
     t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
     t.index ["admin_id"], name: "index_news_on_admin_id"
     t.index ["category_id"], name: "index_news_on_category_id"
+    t.index ["slug"], name: "index_news_on_slug", unique: true
     t.index ["title"], name: "index_news_on_title"
   end
 
@@ -54,7 +58,9 @@ ActiveRecord::Schema.define(version: 2020_02_17_193143) do
     t.integer "news_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
     t.index ["news_id"], name: "index_tags_on_news_id"
+    t.index ["slug"], name: "index_tags_on_slug", unique: true
   end
 
 end

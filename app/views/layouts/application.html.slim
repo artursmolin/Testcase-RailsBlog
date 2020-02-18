@@ -6,11 +6,12 @@ html
 
     == stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     == javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet"
 
   body
     div class="columns is-desktop"
-      div class="column is-one-quarter"
+      div class="column is-one-quarter header"
         == render 'shared/navbar'
-      div class="column is-three-quarters canvas-container"
+      div class="column canvas-container"
         == yield
 
