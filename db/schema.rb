@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_02_18_100352) do
 
   create_table "categories", force: :cascade do |t|
     t.string "title", null: false
+    t.string "indicator"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"

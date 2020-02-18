@@ -4,7 +4,7 @@
       div class='column teaser-item-list'
         div class="card"
           header class="card-header"
-            == render 'shared/news-indicator', category: n.category.title
+            div.indicator style="background-image: #{n.category.indicator}"
           div class="card-content"
             div class="content"
               p class="card-header-title"

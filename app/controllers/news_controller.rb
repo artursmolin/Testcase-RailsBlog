@@ -1,5 +1,6 @@
 class NewsController < ApplicationController
   before_action :find_news, only: :show
+  before_action :find_all_news
 
   def index
     @search = News.ransack(params[:q])
@@ -13,6 +14,7 @@ class NewsController < ApplicationController
 
   def show
     @category_title = @news.category.title
+    @indicator = @news.category.indicator
     @created_at = @news.created_at.strftime("%F")
     @tags = @news.tags
     @asset = @news.asset.present? ? "assets/#{@news.asset}" : 'http://localhost:3000/assets/1.jpg'
@@ -21,5 +23,9 @@ class NewsController < ApplicationController
 
   def find_news
     @news = News.friendly.find(params[:id].parameterize)
+  end
+
+  def find_all_news
+    @categories = Category.all
   end
 end

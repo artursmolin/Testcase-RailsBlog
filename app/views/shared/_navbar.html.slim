@@ -13,11 +13,5 @@ aside class="menu"
           - Category.all.each do |cat|
             li
               == link_to cat.title, category_path(id: cat.title)
-      li
-        a.no-hover  Tags
-        ul
-          - Tag.all.each do |tag|
-            li
-              == link_to tag.title, tag_path(id: tag.title)
 
     == render 'svg/social-icons'

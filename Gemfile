@@ -30,6 +30,8 @@ gem 'slim', '~> 4.0', '>= 4.0.1'
 gem 'ransack'
 gem 'kaminari'
 gem 'friendly_id', '~> 5.2.4'
+gem 'faker', '~> 2.10', '>= 2.10.2'
+gem 'bullet'
 
 group :development, :test do
   gem 'pry', '~> 0.12.2'
