@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class News < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
