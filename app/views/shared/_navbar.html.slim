@@ -8,13 +8,13 @@ aside class="menu"
       li
         == link_to News, news_index_path
       li
-        a Categories
+        a.no-hover Categories
         ul
           - Category.all.each do |cat|
             li
               == link_to cat.title, category_path(id: cat.title)
       li
-        a Tags
+        a.no-hover  Tags
         ul
           - Tag.all.each do |tag|
             li
