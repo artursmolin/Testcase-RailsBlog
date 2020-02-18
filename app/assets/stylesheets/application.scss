@@ -11,8 +11,10 @@
     max-width: 15rem;
   }
   .column.canvas-container{
+    padding: 0;
     width: 100%;
     background: #f5f5f5;
+    overflow-y: auto;
   }
   .menu {
     .dm-logo-holder {
@@ -31,19 +33,26 @@
         position: relative;
         padding: 1rem 2.7rem 2rem 1rem;
         li {
-          text-decoration: none;
-          font-family: 'Bebas Neue', cursive;
-          font-size: 1.3rem;
-          line-height: 1.3rem;
-          padding: .3rem 0 .1rem;
-          position: relative;
-          display: table;
-          height: 2.5rem;
-          overflow: hidden;
-          text-indent: .3rem;
-          text-transform: uppercase;
           a {
             color: #fff;
+            text-decoration: none;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.3rem;
+            line-height: 1.3rem;
+            padding: .3rem 0 .1rem;
+            position: relative;
+            display: table;
+            height: 2.5rem;
+            overflow: hidden;
+            text-indent: .3rem;
+            text-transform: uppercase;
+          }
+          a:hover {
+            background-color: white;
+            white-space: nowrap;
+            color: #f17b2d;
+            width: 8.5rem;
+            height: 2.5rem;
           }
         }
       }
@@ -67,7 +76,15 @@
 }
 
 
-
+.share-buttons {
+  li {
+    a {
+      svg {
+        height: 3rem;
+      }
+    }
+  }
+}
 
 
 

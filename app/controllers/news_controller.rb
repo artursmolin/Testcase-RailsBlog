@@ -11,9 +11,15 @@ class NewsController < ApplicationController
              end
   end
 
-  def show; end
+  def show
+    @category_title = @news.category.title
+    @created_at = @news.created_at.strftime("%F")
+    @tags = @news.tags
+    @asset = @news.asset.present? ? "assets/#{@news.asset}" : 'http://localhost:3000/assets/1.jpg'
+    @recent_news = [News.recent.limit(4)]
+  end
 
   def find_news
-    News.friendly.find(params[:id])
+    @news = News.friendly.find(params[:id].parameterize)
   end
 end

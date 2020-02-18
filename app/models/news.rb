@@ -10,5 +10,5 @@ class News < ApplicationRecord
   belongs_to :admin
   has_many :tags
 
-  scope :recent, -> { order(:created_at) }
+  scope :recent, -> { order('created_at desc') }
 end

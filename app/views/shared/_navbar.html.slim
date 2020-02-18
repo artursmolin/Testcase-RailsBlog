@@ -6,17 +6,18 @@ aside class="menu"
   div class="main-navigation"
     ul class="menu-list"
       li
-        a News
+        == link_to News, news_index_path
       li
-        a class="is-active" Categories
+        a Categories
         ul
-          li
-            a Members
-          li
-            a Plugins
-          li
-            a Add a member
+          - Category.all.each do |cat|
+            li
+              == link_to cat.title, category_path(id: cat.title)
       li
         a Tags
+        ul
+          - Tag.all.each do |tag|
+            li
+              == link_to tag.title, tag_path(id: tag.title)
 
     == render 'svg/social-icons'

@@ -1,0 +1,14 @@
+- news.each do |row|
+  div class="columns news-teaser-list"
+    - row.each do |n|
+      div class='column teaser-item-list'
+        div class="card"
+          header class="card-header"
+            == render 'shared/news-indicator', category: n.category.title
+          div class="card-content"
+            div class="content"
+              p class="card-header-title"
+                == link_to n.title, news_path(n.title)
+          footer class="card-footer"
+            p class="news-teasers_tags"
+              = render 'shared/teaser-tags', news: n
