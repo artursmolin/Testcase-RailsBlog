@@ -2,7 +2,7 @@
 
 class CategoriesController < ApplicationController
   def show
-    @category = Category.friendly.find(params[:id].parameterize)
+    @category = Category.friendly.find(params[:id])
     @news = @category.news.each_slice(3).to_a
   end
 end

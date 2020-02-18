@@ -24,7 +24,7 @@ class NewsController < ApplicationController
   end
 
   def find_news
-    @news = News.friendly.find(params[:id].parameterize)
+    @news = News.friendly.find(params[:id])
   end
 
   def find_all_news
