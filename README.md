@@ -1,9 +1,11 @@
-Testcase Blog
+## Testcase Blog on RoR
 
-Clean RoR project without JS Frameworks
+> Clean RoR project without JS Frameworks
 
-Ruby 2.6.3
-Rails 6 + Bulma
-Admin panel: Administrate
-Deployment: Circle CI + Heroku
-Search gem: Ransack
+- Ruby 2.6.3
+- Rails 6 + Bulma
+- Admin panel: Administrate
+- Deployment: Circle CI + Heroku
+- Search gem: Ransack
+
+
