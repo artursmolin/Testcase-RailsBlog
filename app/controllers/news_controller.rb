@@ -5,12 +5,8 @@ class NewsController < ApplicationController
   before_action :find_all_news, only: %i[show index]
 
   def index
-    @search = News.ransack(params[:q])
-    @news = if params[:q]
-              @search.result.includes(:category).to_a.uniq.each_slice(3).to_a
-            else
-              @search.result.includes(:category).limit(9).to_a.uniq.each_slice(3).to_a
-            end
+    search = News.ransack(params[:q])
+    @news = paginate_news(search, params)
     @title = find_title(params[:q])
   end
 
@@ -36,6 +32,14 @@ class NewsController < ApplicationController
       'FRESHLY SQUEEZED NEWS'
     else
       'SEARCH RESULTS'
+    end
+  end
+
+  def paginate_news(search, params)
+    if params[:q]
+      search.result.includes(:category).to_a.uniq.each_slice(3).to_a
+    else
+      search.result.includes(:category).limit(9).to_a.uniq.each_slice(3).to_a
     end
   end
 end
