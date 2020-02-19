@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'news#index'
   devise_for :admin_users
   namespace :admin do
     resources :categories
