@@ -9,7 +9,7 @@ jobs:
       # specify the version you desire here
       - image: circleci/ruby:2.6.3-node
         environment:
-          PGHOST: testblog
+          PGHOST: localhost
           PGUSER: testblog
           RAILS_ENV: test
       - image: postgres:12.0
@@ -43,7 +43,7 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            gem install bundle
+            gem install bundler -v 2.1.2
             bundle install --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
           paths:
@@ -51,7 +51,7 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       # Database setup
-      - run: bundle exec rake db:schema:load
+      - run: bundle exec rake db:setup
 
       # run tests!
       - run:
