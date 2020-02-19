@@ -1,12 +1,10 @@
 - if news.tags.count > 1
   - news.tags.each do |t|
-    a href="localhost:3000/categories/#{t.title.parameterize}"
-      - if t.eql?(news.tags.last)
-        '
-        == link_to t.title, tag_path(id: t.title.parameterize)
-      - else
-        '
-        == link_to "#{t.title},", tag_path(id: t.title.parameterize)
+    - if t.eql?(news.tags.last)
+      '
+      == link_to t.title, tag_path(id: t.title.parameterize)
+    - else
+      '
+      == link_to "#{t.title},", tag_path(id: t.title.parameterize)
 - elsif news.tags.count.eql?(1)
-  a href="localhost:3000/categories/#{news.tags.first.title.parameterize}"
-    == news.tags.first.title
+  == link_to news.tags.first.title, tag_path(id: news.tags.first.title.parameterize)
