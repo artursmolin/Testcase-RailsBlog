@@ -10,10 +10,8 @@ gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-
 gem 'administrate', '~> 0.12.0'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'bullet'
 gem 'bulma-rails', '~> 0.8.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise', '~> 4.7', '>= 4.7.1'
@@ -22,12 +20,13 @@ gem 'friendly_id', '~> 5.2.4'
 gem 'jbuilder', '~> 2.5'
 gem 'kaminari'
 gem 'ransack'
-gem 'rubocop-rails'
 gem 'slim', '~> 4.0', '>= 4.0.1'
 gem 'turbolinks', '~> 5'
 
 group :development, :test do
   gem 'pry', '~> 0.12.2'
+  gem 'rubocop-rails'
+  gem 'bullet'
 end
 
 group :development do
