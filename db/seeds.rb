@@ -3,7 +3,7 @@
   surname = Faker::Name.last_name
   email = Faker::Internet.email
   password = Faker::Crypto.md5
-  admin = Admin.create!(name: name, surname: surname, email: email, password: password)
+  admin = AdminUser.create!(name: name, surname: surname, email: email, password: password)
   p "Admin:#{admin.name} was created"
 end
 
@@ -16,14 +16,14 @@ end
 50.times do
   category_id  = rand(Category.count)
   category_id = category_id.zero? ? Category.first.id : category_id
-  admin = Admin.last
+  admin = AdminUser.last
   description = Faker::Books::Lovecraft.paragraphs
   title = Faker::Book.title
   begin
-    news = admin.news.create!(title: title, description: description, category_id: category_id, admin_id: admin.id)
+    news = admin.news.create!(title: title, description: description, category_id: category_id, admin_user_id: admin.id)
   rescue
     title = Faker::DcComics.title + category_id.to_s
-    news = admin.news.create!(title: title, description: description, category_id: category_id, admin_id: admin.id)
+    news = admin.news.create!(title: title, description: description, category_id: category_id, admin_user_id: admin.id)
   ensure
     p "News:#{news.title} was created"
   end

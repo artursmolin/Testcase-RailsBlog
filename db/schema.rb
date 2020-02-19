@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_18_183330) do
+ActiveRecord::Schema.define(version: 2020_02_19_082659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "admins", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "surname", null: false
+  create_table "admin_users", force: :cascade do |t|
+    t.string "name"
+    t.string "surname"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 2020_02_18_183330) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_admins_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_admin_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
   create_table "categories", force: :cascade do |t|
@@ -43,12 +43,12 @@ ActiveRecord::Schema.define(version: 2020_02_18_183330) do
     t.string "title", null: false
     t.text "description"
     t.string "asset"
-    t.integer "admin_id", null: false
+    t.integer "admin_user_id", null: false
     t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
-    t.index ["admin_id"], name: "index_news_on_admin_id"
+    t.index ["admin_user_id"], name: "index_news_on_admin_user_id"
     t.index ["category_id"], name: "index_news_on_category_id"
     t.index ["slug"], name: "index_news_on_slug", unique: true
     t.index ["title"], name: "index_news_on_title"
