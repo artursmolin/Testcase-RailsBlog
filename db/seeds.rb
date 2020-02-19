@@ -18,8 +18,8 @@ end
   category_id = category_id.zero? ? Category.first.id : category_id
   admin = AdminUser.last
   description = Faker::Books::Lovecraft.paragraphs
-  title = Faker::Book.title
   begin
+    title = Faker::Book.title + rand(100).to_s
     news = admin.news.create!(title: title, description: description, category_id: category_id, admin_user_id: admin.id)
   rescue
     title = Faker::DcComics.title + category_id.to_s
