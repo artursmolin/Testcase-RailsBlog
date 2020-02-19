@@ -5,8 +5,8 @@ class NewsController < ApplicationController
   before_action :find_all_news, only: %i[show index]
 
   def index
-    search = News.ransack(params[:q])
-    @news = paginate_news(search, params)
+    @search = News.ransack(params[:q])
+    @news = paginate_news(@search, params)
     @title = find_title(params[:q])
   end
 
