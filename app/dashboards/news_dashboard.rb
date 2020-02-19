@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-require 'administrate/base_dashboard'
+require "administrate/base_dashboard"
 
 class NewsDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -12,13 +10,15 @@ class NewsDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     category: Field::BelongsTo,
     admin: Field::BelongsTo,
+    news_tags: Field::HasMany,
     tags: Field::HasMany,
     id: Field::Number,
     title: Field::String,
     description: Field::Text,
     asset: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime
+    updated_at: Field::DateTime,
+    slug: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -27,36 +27,40 @@ class NewsDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    category
-    admin
-    tags
-    id
+  category
+  admin
+  news_tags
+  tags
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-    category
-    admin
-    tags
-    id
-    title
-    description
-    asset
-    created_at
-    updated_at
+  category
+  admin
+  news_tags
+  tags
+  id
+  title
+  description
+  asset
+  created_at
+  updated_at
+  slug
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    category
-    admin
-    tags
-    title
-    description
-    asset
+  category
+  admin
+  news_tags
+  tags
+  title
+  description
+  asset
+  slug
   ].freeze
 
   # COLLECTION_FILTERS

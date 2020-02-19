@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # All Administrate controllers inherit from this `Admin::ApplicationController`,
 # making it the ideal place to put authentication logic or other
 # before_actions.
@@ -11,7 +9,7 @@ module Admin
     before_action :authenticate_admin
 
     def authenticate_admin
-      # TODO: Add authentication logic here.
+      # TODO Add authentication logic here.
     end
 
     # Override this value to specify the number of elements to display at a time
