@@ -22,11 +22,14 @@ gem 'kaminari'
 gem 'ransack'
 gem 'slim', '~> 4.0', '>= 4.0.1'
 gem 'turbolinks', '~> 5'
+gem 'rspec', '~> 3.8'
+gem 'rspec_junit_formatter', '~> 0.2.3'
 
 group :development, :test do
   gem 'pry', '~> 0.12.2'
   gem 'rubocop-rails'
   gem 'bullet'
+  gem 'rspec-rails', '~> 3.9'
 end
 
 group :development do
@@ -39,7 +42,6 @@ end
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'chromedriver-helper'
-  gem 'rspec-rails', '~> 3.9'
   gem 'selenium-webdriver'
 end
 
