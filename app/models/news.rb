@@ -10,6 +10,7 @@ class News < ApplicationRecord
 
   belongs_to :category
   belongs_to :admin_user
+
   has_many :news_tags
   has_many :tags, through: :news_tags
 
