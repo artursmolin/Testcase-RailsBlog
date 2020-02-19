@@ -2,7 +2,7 @@
 
 class NewsController < ApplicationController
   before_action :find_news, only: :show
-  before_action :find_all_news
+  before_action :find_all_news, only: %i[show index]
 
   def index
     @search = News.ransack(params[:q])
