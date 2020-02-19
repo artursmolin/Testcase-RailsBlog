@@ -8,7 +8,7 @@
           div class="card-content"
             div class="content"
               p class="card-header-title"
-                == link_to n.title, news_path(n.title)
+                == link_to n.title, news_path(n.title.parameterize)
           footer class="card-footer"
             p class="news-teasers_tags"
               = render 'shared/teaser-tags', news: n
