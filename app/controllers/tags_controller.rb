@@ -3,6 +3,7 @@
 class TagsController < ApplicationController
   def show
     @tag = Tag.friendly.find(params[:id])
-    @news = @tag.news.each_slice(3).to_a
+    @results = @tag.news.page(params[:page]).per(9)
+    @news = @results.each_slice(3).to_a
   end
 end

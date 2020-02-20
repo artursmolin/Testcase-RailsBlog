@@ -11,7 +11,10 @@ div class="column canvas-container has-background-white"
         == @created_at
       div.article-body
         div.asset
-          img src="#{@asset}"
+          - if @news.asset.nil?
+            == image_tag '1.jpg'
+          - else
+            img src="#{news_assets}" alt="news image"
         div.description
           p
             == @news.description

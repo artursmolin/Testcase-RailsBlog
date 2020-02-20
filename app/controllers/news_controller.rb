@@ -6,14 +6,13 @@ class NewsController < ApplicationController
 
   def index
     @search = News.ransack(params[:q])
-    @page = paginate_news(@search, params)
-    @news = @page.each_slice(3).to_a
+    @results = paginate_news(@search, params)
+    @news = @results.each_slice(3).to_a
     @title = find_title(params[:q])
   end
 
   def show
     @created_at = @news.created_at.strftime('%F')
-    @asset = @news.asset.present? ? "assets/#{@news.asset}" : 'http://localhost:3000/assets/1.jpg'
     @recent_news = [News.recent.limit(4)]
   end
 
@@ -32,6 +31,8 @@ class NewsController < ApplicationController
       'SEARCH RESULTS'
     end
   end
+
+  private
 
   def paginate_news(search, params)
     search.result.page(params[:page]).per(9)

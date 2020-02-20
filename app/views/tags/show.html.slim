@@ -6,3 +6,4 @@ div class="column canvas-container"
         '
         == @tag.title
     == render 'shared/teaser-list', news: @news
+    == paginate @results
