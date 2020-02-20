@@ -12,8 +12,8 @@
     form {
       .news-search {
         position: relative;
-        margin: 0 0 0 10rem;
-        max-width: 40rem;
+        align-items: center;
+        text-align: center;
         input {
           border: 1px solid #fff;
           background: #fff;
@@ -64,8 +64,8 @@
 }
 
 .card-header-title {
-  font-size: 2.3rem;
-  line-height: 3.4rem;
+  font-size: 2.0rem;
+  line-height: 2.4rem;
   font-family: 'Bebas Neue', cursive;
   font-weight: 100;
   padding: 2rem 0 0 0;
@@ -174,7 +174,7 @@ div.news-article-content {
 }
 
 .hero-header {
-  padding: 2rem 0 5rem 10rem;
+  padding: 2rem 2rem 2rem 2rem;
   h1 {
     font-size: 3.5rem;
     text-align: center;
@@ -188,4 +188,8 @@ div.news-article-content {
   padding: 5rem 1.5rem;
 }
 
-
+@media (max-width: 1024px) {
+  .card-header-title {
+    font-size: 1.7rem;
+  }
+}

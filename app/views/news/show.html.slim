@@ -2,9 +2,9 @@ div class="column canvas-container has-background-white"
   div.news-article-content.container.is-fluid.has-background-white
     div.article-text.column
       p.article-cat
-        == @category_title
+        == @news.category.title
       span
-        div.indicator style="background-image: #{@indicator}"
+        div.indicator style="background-image: #{@news.category.indicator}"
       h1.article-headline
         == @news.title
       p.date-published

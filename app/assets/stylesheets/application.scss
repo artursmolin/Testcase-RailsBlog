@@ -90,5 +90,44 @@
   }
 }
 
+.pagination {
+  margin-top: 2rem;
+  border-bottom: 0.2rem solid #f17b2d;
+  border-top: 0.2rem solid #f17b2d;
+  span {
+    font-family: 'Bebas Neue', cursive;
+    margin: 1rem;
+    font-size: 1.5rem;
+    a {
+      color: black;
+    }
+  }
+  .current {
+    color: #f17b2d;
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .column.is-one-quarter.header {
+    display: none;
+  }
+  .columns {
+    overflow-y: auto;
+  }
+  .canvas-container {
+    height: 100vh;
+  }
+  .article-clearfix, .news-teaser-list {
+    overflow: hidden;
+  }
+  .pagination {
+    span {
+      font-family: 'Bebas Neue', cursive;
+      margin: 0.5rem;
+      font-size: 1rem;
+    }
+  }
+}
 
 
